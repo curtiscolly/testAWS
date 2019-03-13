@@ -1,0 +1,13 @@
+{
+    "bucketName": "test-upload",
+    "authPolicyName": "s3_amplify_893b79c1",
+    "unauthPolicyName": "s3_amplify_893b79c1",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authPermissions": "rw",
+    "unauthPermissions": "r"
+}

@@ -1,0 +1,16 @@
+projects:
+  testaws:
+    schemaPath: graphql/schema.json
+    includes:
+      - graphql/**/*.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: API.swift
+        docsFilePath: graphql
+        graphQLApiId: db2wbvtsn5ftxhx3q5ojtaj4hi
+      endpoints:
+        prod: >-
+          https://fvibsvi4vveypg4etm6kr7cewu.appsync-api.us-east-1.amazonaws.com/graphql

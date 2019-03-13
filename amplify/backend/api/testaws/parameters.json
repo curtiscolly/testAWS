@@ -1,0 +1,4 @@
+{
+    "AppSyncApiName": "testaws",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST"
+}
