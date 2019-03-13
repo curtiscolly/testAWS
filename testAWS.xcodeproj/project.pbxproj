@@ -12,6 +12,7 @@
 		131D0D782233387800A61507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 131D0D762233387800A61507 /* Main.storyboard */; };
 		131D0D7A2233387900A61507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 131D0D792233387900A61507 /* Assets.xcassets */; };
 		131D0D7D2233387900A61507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 131D0D7B2233387900A61507 /* LaunchScreen.storyboard */; };
+		13DBD5122239823600BD25C8 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 13DBD5112239823600BD25C8 /* awsconfiguration.json */; };
 		2538BECC9AC1056711952434 /* Pods_testAWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DA18315D6D396308681EBF /* Pods_testAWS.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		131D0D792233387900A61507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		131D0D7C2233387900A61507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		131D0D7E2233387900A61507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13DBD5112239823600BD25C8 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		24DA18315D6D396308681EBF /* Pods_testAWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testAWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		852D248FC203849C9C1A1C4E /* Pods-testAWS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAWS.release.xcconfig"; path = "Pods/Target Support Files/Pods-testAWS/Pods-testAWS.release.xcconfig"; sourceTree = "<group>"; };
 		85355F1E9E089213C00EC801 /* Pods-testAWS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAWS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testAWS/Pods-testAWS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		131D0D712233387800A61507 /* testAWS */ = {
 			isa = PBXGroup;
 			children = (
+				13DBD5112239823600BD25C8 /* awsconfiguration.json */,
 				131D0D722233387800A61507 /* AppDelegate.swift */,
 				131D0D742233387800A61507 /* ViewController.swift */,
 				131D0D762233387800A61507 /* Main.storyboard */,
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13DBD5122239823600BD25C8 /* awsconfiguration.json in Resources */,
 				131D0D7D2233387900A61507 /* LaunchScreen.storyboard in Resources */,
 				131D0D7A2233387900A61507 /* Assets.xcassets in Resources */,
 				131D0D782233387800A61507 /* Main.storyboard in Resources */,
@@ -362,7 +366,10 @@
 				DEVELOPMENT_TEAM = 35A75Z3JJL;
 				INFOPLIST_FILE = testAWS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = snaap.com.testAWS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -379,7 +386,10 @@
 				DEVELOPMENT_TEAM = 35A75Z3JJL;
 				INFOPLIST_FILE = testAWS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = snaap.com.testAWS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
