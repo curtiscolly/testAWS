@@ -6,9 +6,12 @@ target 'testAWS' do
   use_frameworks!
   
   # Pods for testAWS
-  pod 'AWSS3' , '~> 2.9.0'   # For file transfers
+    pod 'AWSS3' , '~> 2.9.0'   # For file transfers
 #  pod 'AWSCore', '~> 2.9.0'
-  pod 'AWSAppSync', '~> 2.10.0'
-  pod 'AWSMobileClient', '~> 2.9.0'
+#  pod 'AWSAppSync', '~> 2.10.0'
+
+    pod 'AWSMobileClient', '~> 2.9.0'      # Required dependency
+    pod 'AWSAuthUI', '~> 2.9.0'            # Optional dependency required to use drop-in UI
+    pod 'AWSUserPoolsSignIn', '~> 2.9.0'
 
 end

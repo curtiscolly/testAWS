@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/testaws-20190308213052-deployment/amplify-cfn-templates/auth/cognito93c08f58-cloudformation-template.yml",
 				"logicalId": "authcognito93c08f58"
 			},
-			"lastPushTimeStamp": "2019-03-11T15:11:39.757Z",
+			"lastPushTimeStamp": "2019-03-13T23:11:13.818Z",
 			"output": {
 				"AppClientSecret": "18lvcbcn56bihcj6npu5k828vrs3pubje5cugmtavceq6u7l816b",
 				"UserPoolId": "us-east-1_BE85XmPkV",
@@ -27,9 +27,14 @@
 				"AppClientID": "4ev8lkkq1dj0tt56fob60u32pq",
 				"IdentityPoolId": "us-east-1:1a6dca2d-cf27-4cfc-8701-0097cae62de3",
 				"IdentityPoolName": "cognito93c08f58_identitypool_93c08f58__myenv",
-				"UserPoolName": "cognito93c08f58_userpool_93c08f58"
+				"UserPoolName": "cognito93c08f58_userpool_93c08f58",
+				"GoogleWebClient": "testaws3",
+				"CreatedSNSRole": "arn:aws:iam::438982111097:role/cognito93c08f58_sns-role-myenv",
+				"FacebookWebClient": "301835803597476",
+				"GoogleIOSClient": "734505512491-csr5j7hiiggslj2gjtksoseqfkfl8ekq.apps.googleusercontent.com"
 			},
-			"lastPushDirHash": "x3NSIctdvjReKLdC53Y5cmkyXfA="
+			"lastPushDirHash": "F5g8zmLlBPv3WhwrgGDs8VNeuFw=",
+			"[object Object]": {}
 		}
 	},
 	"storage": {
@@ -40,7 +45,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/testaws-20190308213052-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
 				"logicalId": "storagefiles"
 			},
-			"lastPushTimeStamp": "2019-03-11T15:11:39.758Z",
+			"lastPushTimeStamp": "2019-03-13T23:11:13.816Z",
 			"output": {
 				"BucketName": "test-upload-myenv",
 				"Region": "us-east-1"
@@ -62,7 +67,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/testaws-20190308213052-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apitestaws"
 			},
-			"lastPushTimeStamp": "2019-03-11T15:11:40.266Z",
+			"lastPushTimeStamp": "2019-03-13T23:11:13.817Z",
 			"lastPushDirHash": "5u1lWcf2aRshjYYLk3km2GONkvo="
 		}
 	}

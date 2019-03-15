@@ -20,6 +20,15 @@
             "Region": "us-east-1"
         }
     },
+    "GoogleSignIn": {
+        "Permissions": "email,profile,openid",
+        "ClientId-WebApp": "testaws3",
+        "ClientId-iOS": "734505512491-csr5j7hiiggslj2gjtksoseqfkfl8ekq.apps.googleusercontent.com"
+    },
+    "FacebookSignIn": {
+        "AppId": "301835803597476",
+        "Permissions": "public_profile"
+    },
     "S3TransferUtility": {
         "Default": {
             "Bucket": "test-upload-myenv",

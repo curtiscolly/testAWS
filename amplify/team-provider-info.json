@@ -12,7 +12,12 @@
         },
         "categories": {
             "auth": {
-                "cognito93c08f58": {}
+                "cognito93c08f58": {
+                    "facebookAppId": "301835803597476",
+                    "googleClientId": "testaws3",
+                    "googleIos": "734505512491-csr5j7hiiggslj2gjtksoseqfkfl8ekq.apps.googleusercontent.com",
+                    "amazonAppId": "cognito93c08f58_userpool_93c08f58-myenv"
+                }
             }
         }
     }
