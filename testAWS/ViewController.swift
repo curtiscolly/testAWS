@@ -9,10 +9,14 @@
 import UIKit
 import AWSS3
 import AWSMobileClient
+import AVKit
+import MobileCoreServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var signInStateLabel: UILabel!
+    var controller = UIImagePickerController()
+    let videoFileName = "/video.mp4"
     
     // Reference the AppSync client
    // var appSyncClient: AWSAppSyncClient?
@@ -34,7 +38,6 @@ class ViewController: UIViewController {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
                 print("UserState: \(userState.rawValue) 🙃")
-                self.uploadData()
             } else if let error = error {
                 print("error: \(error.localizedDescription) 😮")
             }
@@ -127,10 +130,11 @@ class ViewController: UIViewController {
      
      }
     
-     func uploadData() {
+    //MARK: Upload Data
+     func uploadData(videoFile data: Data) {
      
-         let data: Data = Data() // Data to be uploaded
-     
+         //let data: Data = Data() // Data to be uploaded
+        
          let expression = AWSS3TransferUtilityUploadExpression()
          expression.progressBlock = {(task, progress) in
              DispatchQueue.main.async(execute: {
@@ -141,7 +145,7 @@ class ViewController: UIViewController {
          var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
          completionHandler = { (task, error) -> Void in
          DispatchQueue.main.async(execute: {
-             print("transfer complete")
+             print("transfer complete 😝")
              // Do something e.g. Alert a user for transfer completion.
              // On failed uploads, `error` contains the error object.
              })
@@ -152,8 +156,8 @@ class ViewController: UIViewController {
      
          transferUtility.uploadData(data,
          bucket: "quiddish",
-         key: "test",
-         contentType: "text/plain",
+         key: "myFile.mp4",
+         contentType: "video/mp4",
          expression: expression,
          completionHandler: completionHandler).continueWith {
          (task) -> AnyObject? in
@@ -208,6 +212,68 @@ class ViewController: UIViewController {
         AWSMobileClient.sharedInstance().signOut()
     }
     
+    @IBAction func takeVideo(_ sender: UIButton) {
+        // 1 Check if project runs on a device with camera available
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            
+            // 2 Present UIImagePickerController to take video
+            controller.sourceType = .camera
+            controller.mediaTypes = [kUTTypeMovie as String]
+            controller.delegate = self
+            
+            present(controller, animated: true, completion: nil)
+        }
+        else {
+            print("Camera is not available")
+        }
+    }
+    
+    @IBAction func viewLibrary(_ sender: UIButton) {
+        // Display Photo Library
+        controller.sourceType = UIImagePickerController.SourceType.photoLibrary
+        controller.mediaTypes = [kUTTypeMovie as String]
+        controller.delegate = self
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    //MARK: Image Functions
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("HERE 😝")
+        if let selectedVideo:URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
+            // Save video to the main photo album
+            let selectorToCall = #selector(ViewController.videoSaved(_:didFinishSavingWithError:context:))
+            UISaveVideoAtPathToSavedPhotosAlbum(selectedVideo.relativePath, self, selectorToCall, nil)
+            
+            // Save the video to the app directory so we can play it later
+            let videoData = try? Data(contentsOf: selectedVideo)
+            
+            let paths = NSSearchPathForDirectoriesInDomains(
+                FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
+            let dataPath = documentsDirectory.appendingPathComponent(videoFileName)
+            try! videoData?.write(to: dataPath, options: [])
+            
+            uploadData(videoFile: videoData!)
+            
+            
+        }
+        
+        picker.dismiss(animated: true)
+    }
+    
+    @objc func videoSaved(_ video: String, didFinishSavingWithError error: NSError!, context: UnsafeMutableRawPointer){
+        if let theError = error {
+            print("error saving the video = \(theError)")
+        } else {
+            DispatchQueue.main.async(execute: { () -> Void in
+            })
+        }
+    }
+    
+    
     
 }
+
+
 
